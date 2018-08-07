@@ -1,0 +1,68 @@
+page-search {
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10rem;
+    }
+    
+    .img{
+        height: 100%;
+        width: 10rem;
+    }
+
+    .ratingflex{
+
+    }
+
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        width: 24.5%;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .sidebtn{
+        width: 100%;
+        height: 20rem;
+        font-size: 4rem;
+        text-align: center;
+        transition: all ease .1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebtn:active{
+        background: greenyellow;
+    }
+
+    .maincontent{
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.content{
+        overflow: scroll;
+        height: 100vh;
+    }
+
+    .card{
+        display:flex;
+        flex-direction: row;
+        width: 30rem
+    }
+
+    div.card:nth-child(odd){
+        background: whitesmoke;
+    }
+    .poster{
+        height: 10rem;
+        max-width: auto;
+    }
+
+    .cardflex{
+       
+    }
+}
