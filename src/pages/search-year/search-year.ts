@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesProvider } from '../../providers/movies/movies';
+
 /**
- * Generated class for the SearchPage page.
+ * Generated class for the SearchYearPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,10 +11,10 @@ import { MoviesProvider } from '../../providers/movies/movies';
 
 @IonicPage()
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html',
+  selector: 'page-search-year',
+  templateUrl: 'search-year.html',
 })
-export class SearchPage implements OnInit{
+export class SearchYearPage {
   moviesArr: any;
 
   headingTitle;
@@ -25,14 +26,12 @@ export class SearchPage implements OnInit{
   constructor(public navCtrl: NavController, public navParams: NavParams, public moviesDb: MoviesProvider) {
   }
 
-  ngOnInit() {
-    if(this.navParams.get != null){
-      this.moviesArr = this.navParams.get('moviesArr');
-    }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad SearchYearPage');
   }
 
-  searchMovieName(name) {
-    this.moviesDb.getMoviesByName(name).then((data: any) => {
+  searchMovieYear(year) {
+    this.moviesDb.searchByYear(year).then((data: any) => {
       this.moviesArr = data.Search;
     });
   }

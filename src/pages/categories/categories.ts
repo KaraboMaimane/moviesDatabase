@@ -17,6 +17,8 @@ import { MoviesProvider } from '../../providers/movies/movies';
 })
 export class CategoriesPage {
   moviesArr;
+  title;
+  year: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public moviesDb: MoviesProvider) {
   }
 
@@ -43,6 +45,8 @@ export class CategoriesPage {
         {
           text: 'Save',
           handler: data => {
+            this.title =  data.title;
+            this.title
             this.searchMovieName(data.title);
           }
         }
@@ -56,5 +60,37 @@ export class CategoriesPage {
       this.moviesArr = data.Search;
       this.navCtrl.push(SearchPage, {moviesArr: this.moviesArr});
     });
+  }
+
+  searchByYear(){
+    const alert = this.alertCtrl.create({
+      title: 'Movie release year',
+      subTitle: 'Enter the movie year you wanna enter',
+      inputs: [
+        {
+          name: 'year',
+          type: 'number',
+          placeholder: 'Year'
+        }
+      ],
+      buttons:[
+        {
+          text: 'Cancel' 
+        },
+        {
+          text: 'Save',
+          handler: (data) =>{
+            if(data.year >= 1889){
+              this.year = parseInt(data.year);
+              this.moviesDb.searchByYear(this.year);
+              console.log(this.year);
+            }else{
+              console.log('false')
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }

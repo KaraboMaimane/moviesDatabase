@@ -10,13 +10,15 @@ import { MoviesProvider } from '../providers/movies/movies';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { CategoriesPage } from '../pages/categories/categories';
 import { SearchPage } from '../pages/search/search';
+import { SearchYearPage } from '../pages/search-year/search-year';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CategoriesPage,
-    SearchPage
+    SearchPage,
+    SearchYearPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { SearchPage } from '../pages/search/search';
     MyApp,
     HomePage,
     CategoriesPage,
-    SearchPage
+    SearchPage,
+    SearchYearPage
   ],
   providers: [
     StatusBar,
