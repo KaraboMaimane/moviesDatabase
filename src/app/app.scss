@@ -14,3 +14,43 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.alertCustomCss {
+     // text color for basic alerts
+     color: white; 
+ 
+ 
+     button {
+         color: #6AC045 !important; // button text color
+         background-color: #191919!important;
+             //button bg color
+     }
+     .alert-title{
+          color: #6AC045;
+     }
+     .alert-sub-title{
+          color: rgb(202, 202, 202);
+     }
+     .alert-message {
+         color: black; // text color for confirm alerts
+     }
+ 
+     .alert-wrapper {
+         background-color: #191919; // bg color of alert content
+     }
+
+     .alert-input{
+          color: black;
+     }
+
+     .alert-radio-label{
+          color: #6ac045;
+     }
+
+     .alert-ios[aria-checked=true].alert-radio-label{
+          color: white !important;
+     }
+
+     .alert-md[aria-checked=true].alert-radio-label{
+          color: white !important;
+     }
+   }

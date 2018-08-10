@@ -17,7 +17,7 @@
   </ion-list>
   <div class="maincontent">
     <div class="sidebar">
-      <div class="sidebtn" (click)="addToWatchList()">
+      <div class="sidebtn">
         <ion-icon name="heart"></ion-icon>
       </div>
       <div class="sidebtn">
@@ -35,7 +35,7 @@
             <img *ngIf="movie.Poster != 'N/A'" src="{{movie.Poster}}" id="menuMovie">
           </ion-thumbnail>
           <h2>{{movie.Title}}</h2>
-          <p>Release: {{movie.Year}}</p>
+          <p>{{movie.Year}}</p>
         </ion-item>
       </ion-list>
     </div>

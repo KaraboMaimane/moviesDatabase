@@ -17,8 +17,8 @@
     </ion-list>
     <div class="maincontent">
       <div class="sidebar">
-        <div class="sidebtn" (click)="addToWatchList()">
-          <ion-icon name="heart" ></ion-icon>
+        <div class="sidebtn">
+          <ion-icon name="heart"></ion-icon>
         </div>
         <div class="sidebtn">
           <ion-icon name="information-circle"></ion-icon>
@@ -32,10 +32,10 @@
           <ion-item id="moviescroll" *ngFor="let movie of moviesArr; let i = index" (click)="selectMovie(i)">
             <ion-thumbnail item-start>
               <img *ngIf="movie.Poster == 'N/A'" src="../../assets/imgs/noimage.jpg" id="menuMovie" alt="">
-              <img *ngIf="movie.Poster != 'N/A'" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" id="menuMovie">
+              <img *ngIf="movie.Poster != 'N/A'" src="{{movie.Poster}}" id="menuMovie">
             </ion-thumbnail>
-            <h2>{{movie.title}}</h2>
-            <p>Year Of Release: {{movie.release_date}}</p>
+            <h2>{{movie.Title}}</h2>
+            <p>{{movie.Year}}</p>
           </ion-item>
         </ion-list>
       </div>

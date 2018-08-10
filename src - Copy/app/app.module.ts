@@ -11,9 +11,6 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { CategoriesPage } from '../pages/categories/categories';
 import { SearchPage } from '../pages/search/search';
 import { SearchYearPage } from '../pages/search-year/search-year';
-import { SearchGenrePage } from '../pages/search-genre/search-genre';
-import { WatchlistPage } from '../pages/watchlist/watchlist';
-import { MovieInfoPage } from '../pages/movie-info/movie-info';
 
 @NgModule({
   declarations: [
@@ -21,10 +18,7 @@ import { MovieInfoPage } from '../pages/movie-info/movie-info';
     HomePage,
     CategoriesPage,
     SearchPage,
-    SearchYearPage,
-    SearchGenrePage,
-    WatchlistPage,
-    MovieInfoPage
+    SearchYearPage
   ],
   imports: [
     BrowserModule,
@@ -37,10 +31,7 @@ import { MovieInfoPage } from '../pages/movie-info/movie-info';
     HomePage,
     CategoriesPage,
     SearchPage,
-    SearchYearPage,
-    SearchGenrePage,
-    WatchlistPage,
-    MovieInfoPage
+    SearchYearPage
   ],
   providers: [
     StatusBar,

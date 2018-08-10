@@ -2,36 +2,39 @@ page-categories {
     .contentflex{
         display: flex;
         flex-direction: column;
-        height: 93.4vh;
+        height: 100vh;
     }
     div.content1, div.content2, div.content3, div.content4{
         height: 25%;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white
+        color: white;
+        border-bottom: rgba(255, 255, 255, .5) .3rem solid;
+        border-left: rgba(255, 255, 255, .5) .3rem solid;
+        border-right: rgba(255, 255, 255, .5) .3rem solid;
     }
 
     .content1{
-        background: url('../../assets/imgs/6P3c80EOm7BodndGBUAJHHsHKrp.jpg');
+        background-image: linear-gradient(90deg,  rgba(0, 0, 0, 0.5)), url('../../assets/imgs/6P3c80EOm7BodndGBUAJHHsHKrp.jpg');
         background-size: cover;
         transition: ease all .1s;
     }
 
     .content2{
-        background: url('../../assets/imgs/lmZFxXgJE3vgrciwuDib0N8CfQo.jpg');
+        background: linear-gradient(90deg,  rgba(0, 0, 0, 0.3)),url('../../assets/imgs/got.jpg');
         background-size: cover;
         transition: ease all .1s;
     }
 
     .content3{
-        background: url('../../assets/imgs/qa2LMDFkpojSIgmbQkdQSdRVG98.jpg');
+        background: linear-gradient(90deg,  rgba(0, 0, 0, 0.3)),url('../../assets/imgs/qa2LMDFkpojSIgmbQkdQSdRVG98.jpg');
         background-size: cover;
         transition: ease all .1s;
     }
 
     .content4{
-        background: url('../../assets/imgs/qRqm9IBY2J6OxUHDPZrIODmFBEM.jpg');
+        background: linear-gradient(90deg,  rgba(0, 0, 0, 0.3)),url('../../assets/imgs/qRqm9IBY2J6OxUHDPZrIODmFBEM.jpg');
         background-size: cover;
         transition: ease all .1s;
     }
@@ -39,6 +42,32 @@ page-categories {
     .content1:active, .content2:active, .content3:active, .content4:active{
         filter: grayscale(.8);
         filter: blur(2px);
-        transform: scale(1.1)
+        transform: scale(1.1);
     }
+
+    #bannercontent{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .image{
+        font-size: 4rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .text{
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: .3rem;
+        animation: infinite shadow 3s ease-in-out;
+        animation-direction: reverse;
+    }
+
+    @keyframes shadow{
+        100%{
+            text-shadow: .3rem .4rem .9rem rgba(255, 246, 169, 0.726);
+        }
+    }
+
 }

@@ -6,7 +6,10 @@
 -->
 <ion-content>
   <ion-list id="avatar">
-    <ion-item id="top">
+    <ion-item id="top" [ngStyle]="{
+        'background-image': 'url('+ headingUrl +')',
+        'background-size': 'cover'
+      }">
       <ion-thumbnail item-start>
         <img id="headerImage" *ngIf="headingUrl != 'N/A'" src="{{headingUrl}}">
       </ion-thumbnail>
@@ -15,13 +18,18 @@
       <p>ImDb Rating: {{headingRating}}</p>
     </ion-item>
   </ion-list>
+  <ion-fab bottom right (click)="toWatchList()">
+    <button ion-fab color="secondary">
+      <ion-icon name="list-box"></ion-icon>
+    </button>
+  </ion-fab>
   <div class="maincontent">
     <div class="sidebar">
       <div class="sidebtn" (click)="addToWatchList()">
         <ion-icon name="heart"></ion-icon>
       </div>
-      <div class="sidebtn">
-        <ion-icon name="information-circle"></ion-icon>
+      <div class="sidebtn" (click)="toInfoPage()">
+        <ion-icon name="information-circle" ></ion-icon>
       </div>
       <div class="sidebtn" (click)="back()">
         <ion-icon name="arrow-back"></ion-icon>
@@ -32,10 +40,11 @@
         <ion-item id="moviescroll" *ngFor="let movie of moviesArr; let i = index" (click)="selectMovie(i)">
           <ion-thumbnail item-start>
             <img *ngIf="movie.Poster == 'N/A'" src="../../assets/imgs/noimage.jpg" id="menuMovie" alt="">
-            <img *ngIf="movie.Poster != 'N/A'" src="{{movie.Poster}}" id="menuMovie">
+            <img *ngIf="movie.Poster != 'N/A'" src="http://image.tmdb.org/t/p/w185{{movie.poster_path}}" id="menuMovie">
           </ion-thumbnail>
-          <h2>{{movie.Title}}</h2>
-          <p>Release: {{movie.Year}}</p>
+          <h2>{{movie.title}}</h2>
+          <p>{{movie.production}}</p>
+          <p>Released: {{movie.release_date}}</p>
         </ion-item>
       </ion-list>
     </div>

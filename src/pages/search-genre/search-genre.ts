@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesProvider } from '../../providers/movies/movies';
 import { WatchlistPage } from '../watchlist/watchlist';
+import { MovieInfoPage } from '../movie-info/movie-info';
+
 /**
- * Generated class for the SearchPage page.
+ * Generated class for the SearchGenrePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,43 +13,37 @@ import { WatchlistPage } from '../watchlist/watchlist';
 
 @IonicPage()
 @Component({
-  selector: 'page-search',
-  templateUrl: 'search.html',
+  selector: 'page-search-genre',
+  templateUrl: 'search-genre.html',
 })
-export class SearchPage implements OnInit{
-  moviesArr: any;
+export class SearchGenrePage implements OnInit{
+  moviesArr;
 
-  headingTitle;
-  headingDescription;
-  headingDate;
+  headingTitle = 'No Title Selected';
+  headingDescription = 'No Description Available';
+  headingDate = 'No Date Selected';
   headingUrl = '../../assets/imgs/noimage.jpg';
-  headingRating;
+  headingRating = 'Not Rated';
   headingPlot: any;
 
   selected: number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public moviesDb: MoviesProvider) {
   }
 
-  ngOnInit() {
+  ngOnInit(){
     if(this.navParams.get != null){
       this.moviesArr = this.navParams.get('moviesArr');
     }
   }
 
-  searchMovieName(name) {
-    this.moviesDb.getMoviesByName(name).then((data: any) => {
-      this.moviesArr = data.Search;
-    });
-  }
-
   selectMovie(i){
     this.selected = i;
-    this.headingTitle = this.moviesArr[i].Title;
-    this.headingDate = this.moviesArr[i].Year;
-    this.headingUrl = this.moviesArr[i].Poster;
+    this.headingTitle = this.moviesArr[i].title;
+    this.headingDate = this.moviesArr[i].release_date;
+    this.headingUrl = `http://image.tmdb.org/t/p/w185/${this.moviesArr[i].poster_path}`;
 
-    console.log(this.moviesArr[i].Title)
-    this.moviesDb.searchByTitle(this.moviesArr[i].Title).then((data: any) => {
+    this.moviesDb.searchByTitle(this.moviesArr[i].title).then((data: any) => {
       this.headingRating = data.imdbRating;
       this.headingPlot = data.Plot;
     });
@@ -55,7 +51,7 @@ export class SearchPage implements OnInit{
 
   addToWatchList(){
     if(this.selected != undefined){
-      this.moviesDb.searchByTitle(this.moviesArr[this.selected].Title).then((data: any) =>{
+      this.moviesDb.searchByTitle(this.moviesArr[this.selected].title).then((data: any) =>{
         this.moviesDb.addToWatch(data); 
         this.moviesDb.showList();
       });
@@ -64,6 +60,10 @@ export class SearchPage implements OnInit{
 
   toWatchList(){
     this.navCtrl.push(WatchlistPage);
+  }
+
+  toInfoPage(){
+    this.navCtrl.push(MovieInfoPage, {movie: this.moviesArr[this.selected]});
   }
 
   back(){

@@ -13,7 +13,33 @@ page-home {
 
     div.content{
         color: white;
-        background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent);
-        padding: 5rem;
+        background: linear-gradient(120deg, black, transparent);
+        padding: 4rem;
+        border-radius: 5rem 0rem 5rem 0rem;
+    }
+
+    .imageflex{
+        display: flex;
+        justify-content: center;
+    }
+
+    .headingText{
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: .4rem;
+        font-size: 3rem;
+        color:#32db64;
+    }
+
+    .quotes{
+        text-align: center;
+        font-size: 2rem;
+        color: rgb(238, 238, 238);
+        font-weight: 500;
+    }
+
+    button{
+        background: #222 !important;
+        color: #32db64 !important;
     }
 }

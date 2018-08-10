@@ -4,28 +4,39 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>categories</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content>
   <div class="contentflex">
-    <div class="content1" (click)="searchByTitle()">
-      <h1 center>Movie By Title</h1>
+    <div class="content1" (click)="searchByTitle()" id="bannercontent">
+      <div class="image">
+        <ion-icon name="pricetag" center></ion-icon>
+      </div>
+      <div class="text">
+        <h1 center>By Title</h1>
+      </div>
     </div>
-    <div class="content2" (click)="searchByYear()">
-        <h1 center>Movie By Date</h1>
+    <div class="content2" (click)="searchByYear()" id="bannercontent">
+      <div class="image">
+        <ion-icon name="calendar" center></ion-icon>
+      </div>
+      <div class="text">
+        <h1 center>Top 10 By Year</h1>
+      </div>
     </div>
-    <div class="content3">
-        <h1 center>Movie By Genre</h1>
+    <div class="content3" (click)="searchByGenre()" id="bannercontent">
+      <div class="image">
+        <ion-icon name="videocam" center></ion-icon>
+      </div>
+      <div class="text">
+        <h1 center>Top 10 By Genre</h1>
+      </div>
     </div>
-    <div class="content4">
+    <div class="content4" id="bannercontent">
+      <div class="image">
+        <ion-icon name="list-box" center></ion-icon>
+      </div>
+      <div class="text" (click)="toWatchList()">
         <h1 center>WatchList</h1>
+      </div>
     </div>
   </div>
 </ion-content>
