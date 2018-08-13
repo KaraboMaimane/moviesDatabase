@@ -131,4 +131,23 @@ ion-content{
             color: #1d1d1d;
         }
     }
+
+    .title{
+        letter-spacing: 1px;
+    }
+    .plot, .imdbRating{
+     color: white;
+     font-size: 1.5rem;   
+    }
+
+    .plot{
+        animation: 10s ease scroll infinite;
+    }
+
+    @keyframes scroll{
+        100%{
+            transform: translateX(-5rem);
+            opacity: 0.5;
+        }
+    }
 }

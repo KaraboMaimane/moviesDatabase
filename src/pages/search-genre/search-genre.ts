@@ -27,6 +27,8 @@ export class SearchGenrePage implements OnInit{
   headingPlot: any;
 
   selected: number;
+  background: any;
+  movieId: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moviesDb: MoviesProvider) {
   }
@@ -41,7 +43,9 @@ export class SearchGenrePage implements OnInit{
     this.selected = i;
     this.headingTitle = this.moviesArr[i].title;
     this.headingDate = this.moviesArr[i].release_date;
-    this.headingUrl = `http://image.tmdb.org/t/p/w185/${this.moviesArr[i].poster_path}`;
+    this.headingUrl = `http://image.tmdb.org/t/p/original/${this.moviesArr[i].poster_path}`;
+    this.movieId = this.moviesArr[i].id;
+    this.background = this.moviesArr[i].backdrop_path;
 
     this.moviesDb.searchByTitle(this.moviesArr[i].title).then((data: any) => {
       this.headingRating = data.imdbRating;
@@ -63,7 +67,11 @@ export class SearchGenrePage implements OnInit{
   }
 
   toInfoPage(){
-    this.navCtrl.push(MovieInfoPage, {movie: this.moviesArr[this.selected]});
+    this.navCtrl.push(MovieInfoPage, {
+      movie: this.moviesArr[this.selected], 
+      background: this.background, 
+      id: this.movieId
+    });
   }
 
   back(){

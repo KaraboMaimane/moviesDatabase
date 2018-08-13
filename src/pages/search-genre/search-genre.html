@@ -13,9 +13,9 @@
       <ion-thumbnail item-start>
         <img id="headerImage" *ngIf="headingUrl != 'N/A'" src="{{headingUrl}}">
       </ion-thumbnail>
-      <h2>{{headingTitle}}</h2>
-      <p style="color: white">{{headingPlot}}</p>
-      <p>ImDb Rating: {{headingRating}}</p>
+      <h2 class="title">{{headingTitle}}</h2>
+      <p class="plot">{{headingPlot}}</p>
+      <p class="imdbRating">ImDb Rating: {{headingRating}}</p>
     </ion-item>
   </ion-list>
   <ion-fab bottom right (click)="toWatchList()">

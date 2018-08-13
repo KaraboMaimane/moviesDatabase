@@ -28,19 +28,6 @@ export class MoviesProvider {
     });
   }
 
-    getTvShowByName(title) {
-    let url = 'http://www.omdbapi.com/?s='+ title +'&type=series&apikey=77770a81';
-    
-    return new Promise(resolve => {
-      this.http.get(url).subscribe(data => {
-        resolve(data);
-        console.log(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-
   searchByTitle(title){
     let url = 'http://www.omdbapi.com/?t='+ title +'&plot=full&apikey=77770a81';
     
@@ -54,9 +41,12 @@ export class MoviesProvider {
     });
   }
 
+  detailedSearch(title){
+
+  }
+
   searchByYear(year){
     let url = 'https://api.themoviedb.org/3/discover/movie?api_key=ee83512c0fd8ba5bceb5752c17820bf4&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year='+year;
-    // let url = 'http://www.omdbapi.com/?y='+ year +'&apikey=77770a81';
     
     return new Promise(resolve => {
       this.http.get(url).subscribe(data => {
@@ -79,6 +69,19 @@ export class MoviesProvider {
         console.log(err);
       });
     });
+  }
+
+  getTrailer(id){
+    let url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=ee83512c0fd8ba5bceb5752c17820bf4&language=en-US`;
+
+    return new Promise(resolve =>{
+      this.http.get(url).subscribe(data => {
+        resolve(data);
+        console.log(data);
+      }, err =>{
+        console.log(err);
+      })
+    })
   }
 
   addToWatch(items){

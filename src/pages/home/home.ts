@@ -9,11 +9,8 @@ import { CategoriesPage } from '../categories/categories';
 })
 export class HomePage {
   moviesArr;
+
   constructor(public navCtrl: NavController, public moviesDb: MoviesProvider) {
-  }
-
-  ionViewDidEnter() {
-
   }
 
   nextPage(){
